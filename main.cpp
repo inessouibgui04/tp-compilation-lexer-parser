@@ -1,9 +1,16 @@
 #include <iostream>
 #include "lexer.h"
-
+#include "symbole.h"
+#include "automate.h"
 
 int main(void) {
-   string chaine("(1+34)*123");
+   
+   string chaine;
+   cout<<"Expression : ";
+   cin>>chaine;
+    
+
+   //string chaine("6+(1*5+34)*123");
 
    Lexer l(chaine);
 
@@ -13,6 +20,10 @@ int main(void) {
       cout<<endl;
       l.Avancer();
    }
+
+   Automate automate(chaine);
+
+    cout << "Resultat = " << automate.getResultat() << endl;
+
    return 0;
 }
-
