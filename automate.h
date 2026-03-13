@@ -10,7 +10,7 @@ public:
     Automate(string chaine);
     ~Automate();
 
-    //meme methode vues en polycopié du cours
+    //meme methode vues dans le polycopié du cours
     void decalage(Symbole * s, Etat * e);
     void transitionsimple(Symbole * s, Etat * e);
     void reduction(int n, Symbole * s);

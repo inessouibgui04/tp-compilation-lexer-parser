@@ -29,9 +29,7 @@ Symbole * Lexer::Consulter() {
             case '\t':
             case '\n':
             case '\r':
-               // Ignorer les espaces et caractères de whitespace
                tete++;
-               // Rappeler récursivement pour lire le prochain symbole
                return Consulter();
                break;
             default:
@@ -49,7 +47,7 @@ Symbole * Lexer::Consulter() {
                   tampon = new Entier(resultat);
                }
                else {
-                  tete++;  // avancer même pour les caractères invalides
+                  tete++; 
                   tampon = new Symbole(ERREUR);
                }
          }
