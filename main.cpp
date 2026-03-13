@@ -4,13 +4,13 @@
 #include "automate.h"
 
 int main(void) {
-   /*
+   
    string chaine;
    cout<<"Expression : ";
    cin>>chaine;
-    */
+    
 
-   string chaine("6+(1*5+34)*123");
+   //string chaine("6+(1*5+34)*123");
 
    Lexer l(chaine);
 
