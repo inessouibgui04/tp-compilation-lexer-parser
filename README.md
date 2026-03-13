@@ -1,38 +1,69 @@
 # tp-compilation-lexer-parser
 
-Projet de compilation : un analyseur lexical et syntaxique LALR(1) avec évaluation d'expressions arithmétiques (en c++).
+Projet de compilation : implémentation d’un analyseur lexical (lexer) et d’un analyseur syntaxique ascendant LALR(1) capable d’évaluer des expressions arithmétiques.
 
 ## Structure du projet
+
+```
 tp-compilation-lexer-parser/
-├── main.cpp # Point d'entrée principal
-├── lexer.h / lexer.cpp # Analyseur lexical
+├── main.cpp              # Programme principal (parser + évaluation)
+├── lexer.h / lexer.cpp   # Analyseur lexical
 ├── symbole.h / symbole.cpp # Définition des symboles et tokens
 ├── automate.h / automate.cpp # Automate LALR(1)
-├── state.h / state.cpp # États de l'automate
-├── Tests.cpp # Tests unitaires et cas d'erreur
-├── Makefile # Compilation
-└── README.md # Documentation
+├── state.h / state.cpp   # États de l'automate
+├── Tests.cpp             # Tests du lexer et du parser
+├── Makefile              # Compilation du projet
+└── README.md             # Documentation
+```
 
+## Grammaire utilisée
 
----
+Le parser implémente la grammaire suivante :
+
+```
+E' → E
+E  → E + E
+E  → E * E
+E  → ( E )
+E  → val
+```
 
 ## Compilation
 
-Pour compiler le parser principal :
+Compiler le projet :
 
 ```bash
-make parser
+make
+```
+
+Cette commande génère deux exécutables :
+
+* `parser` : programme principal
+* `tests` : programme de tests
+
+## Utilisation
+
+### Lancer le parser
+
+```bash
 ./parser
 ```
 
-Pour compiler et exécuter les tests unitaires :
+Permet d’analyser et d’évaluer une expression arithmétique.
+
+
+### Lancer les tests
 
 ```bash
-make tests
 ./tests
 ```
 
-Pour nettoyer les fichiers générés :
+Exécute les tests du lexer et du parser.
+
+## Nettoyage
+
+Supprimer les fichiers générés :
+
 ```bash
 make clean
 ```
