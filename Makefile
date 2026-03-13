@@ -1,39 +1,10 @@
-# Makefile pour parser et tests
+all: parser tests
 
-CXX = g++
-CXXFLAGS = -std=c++11 -Wall
+parser:
+	g++ -std=c++11 -Wall main.cpp lexer.cpp symbole.cpp automate.cpp state.cpp -o parser
 
-# fichiers sources
-SRCS = main.cpp lexer.cpp symbole.cpp automate.cpp state.cpp
-OBJS = $(SRCS:.cpp=.o)
+tests:
+	g++ -std=c++11 -Wall Tests.cpp lexer.cpp symbole.cpp automate.cpp state.cpp -o tests
 
-# fichiers sources pour les tests
-TEST_SRCS = Tests.cpp lexer.cpp symbole.cpp automate.cpp state.cpp
-TEST_OBJS = $(TEST_SRCS:.cpp=.o)
-
-# cible par défaut
- 
-all: parser
-
- 
-# parser principal
- 
-parser: $(OBJS)
-	$(CXX) -o parser $(OBJS)
-
- 
-# compilation des .o
- 
-%.o: %.cpp
-	$(CXX) $(CXXFLAGS) -c $<
-
-
-# tests
-
-tests: $(TEST_SRCS)
-	$(CXX) $(CXXFLAGS) -o tests $(TEST_SRCS)
-
-
-# nettoyage
 clean:
-	rm -f *.o parser tests
+	rm -f parser tests *.o
